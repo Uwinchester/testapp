@@ -8,11 +8,21 @@
   <name>WebApp Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
+    <!-- Intentionally vulnerable dependencies -->
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.17</version> <!-- Contains CVE-2021-44228 -->
+    </dependency>
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.2.4</version> <!-- Old version with vulnerabilities -->
+    </dependency>
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+      <version>4.3.6</version> <!-- Contains multiple CVEs -->
     </dependency>
   </dependencies>
   <build>
